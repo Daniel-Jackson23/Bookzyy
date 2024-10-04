@@ -1,5 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
+//import { supabase } from './lib/supabaseClient'
 import NavBar from './components/NavBar.vue'
 </script>
 

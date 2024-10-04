@@ -13,13 +13,16 @@
         <div
           class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
         >
+          <div v-if="errorMsg">
+            <p class="text-red-500">{{ errorMsg }}</p>
+          </div>
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1
               class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
             >
               Sign in to your account
             </h1>
-            <form class="space-y-4 md:space-y-6" action="#">
+            <form @submit.prevent="login" class="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
                   for="email"
@@ -30,6 +33,7 @@
                   type="email"
                   name="email"
                   id="email"
+                  v-model="email"
                   class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                   required=""
@@ -45,6 +49,7 @@
                   type="password"
                   name="password"
                   id="password"
+                  v-model="password"
                   placeholder="••••••••"
                   class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
@@ -94,13 +99,36 @@
 
 <script>
 import { ref } from 'vue'
+import { supabase } from '../lib/supabaseClient.js'
+import { useRouter } from 'vue-router'
 
 export default {
-  name: 'loginView',
+  name: 'registerView',
   setup() {
+    const router = useRouter()
     const email = ref(null)
     const password = ref(null)
-    const confirmPassword = ref(null)
+    const errorMsg = ref(null)
+
+    const login = async () => {
+      try {
+        const { error } = await supabase.auth.signInWithPassword({
+          email: email.value,
+          password: password.value
+        })
+        if (error) throw error
+        router.push({ name: 'Home' })
+      } catch (error) {
+        errorMsg.value = `Error: ${error.message}`
+      }
+    }
+
+    return {
+      email,
+      password,
+      errorMsg,
+      login
+    }
   }
 }
 </script>
