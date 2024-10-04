@@ -14,22 +14,31 @@
           </ul>
           <ul class="flex items-center space-x-5">
             <li class="hidden sm:flex">
-              <a href="/" class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
-                >Home</a
+              <router-link
+                to="/"
+                class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
+                >Home</router-link
               >
             </li>
             <li class="hidden sm:flex">
-              <a
-                href="/portfolio"
+              <router-link
+                to="/calender"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
-                >Portfolio</a
+                >Calender</router-link
               >
             </li>
             <li class="hidden sm:flex">
-              <a
-                href="/articles"
+              <router-link
+                to="/teams"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
-                >Articles</a
+                >Teams</router-link
+              >
+            </li>
+            <li class="hidden sm:flex">
+              <router-link
+                to="/myholiday"
+                class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
+                >My Holiday</router-link
               >
             </li>
           </ul>
@@ -84,7 +93,7 @@
                     <a
                       href="/portfolio"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
-                      >Portfolio</a
+                      >Calender</a
                     >
                   </li>
                   <li class="flex">
