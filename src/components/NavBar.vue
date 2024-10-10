@@ -29,7 +29,7 @@
           <ul class="flex items-center space-x-5">
             <li class="hidden sm:flex">
               <router-link
-                to="/"
+                to="/home"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >Home</router-link
               >
@@ -53,6 +53,13 @@
                 to="/myholiday"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >My Holiday</router-link
+              >
+            </li>
+            <li class="hidden sm:flex" @click="logout">
+              <router-link
+                to=""
+                class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
+                >logout</router-link
               >
             </li>
           </ul>
@@ -124,6 +131,13 @@
                       >My holiday</router-link
                     >
                   </li>
+                  <li class="flex" @click="logout">
+                    <router-link
+                      to="/"
+                      class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
+                      >logout</router-link
+                    >
+                  </li>
                 </ul>
               </div>
             </li>
@@ -135,19 +149,29 @@
 </template>
 
 <script>
+import { supabase } from '@/lib/supabaseClient'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
     const showMenu = ref(false)
 
+    const router = useRouter()
+
     const toggleMenu = () => {
       showMenu.value = !showMenu.value
     }
 
+    const logout = async () => {
+      await supabase.auth.signOut()
+      router.push({ name: 'home' })
+    }
+
     return {
       showMenu,
-      toggleMenu
+      toggleMenu,
+      logout
     }
   }
 }
