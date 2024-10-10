@@ -1,33 +1,24 @@
-<script>
-import { RouterView } from 'vue-router'
+<script setup>
+import state from './stores/index'
 import NavBar from './components/NavBar.vue'
 import { ref } from 'vue'
 import { supabase } from './lib/supabaseClient'
-import { store } from './stores/index'
 
-export default {
-  components: {
-    NavBar
-  },
-  async setup() {
-    const appReady = ref(null)
+const appReady = ref(null)
 
-    //check to if user is already logged in
-    const user = supabase.auth.getUser()
+//check to if user is already logged in
+const user = supabase.auth.getUser()
 
-    //if user does not exisit
-    if (!user) {
-      appReady.value = true
-    }
-
-    supabase.auth.onAuthStateChange((_, session) => {
-      store.methods.setUser(session)
-      appReady.value = true
-    })
-
-    return { appReady }
-  }
+//if user does not exisit
+if (!user) {
+  appReady.value = true
 }
+
+supabase.auth.onAuthStateChange((_, session) => {
+  console.log('hello')
+  state.methods.setUser(session)
+  appReady.value = true
+})
 </script>
 
 <template>
