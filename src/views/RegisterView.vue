@@ -160,7 +160,7 @@ export default {
         }
         return
       }
-      errorMsg.value = 'error: passwords do not match'
+      errorMsg.value = 'Error: Passwords Do Not Match'
       setTimeout(() => {
         errorMsg.value = null
       }, 5000)

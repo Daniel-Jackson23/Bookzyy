@@ -4,18 +4,38 @@
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-black">
           <!-- <img
-            class="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-            alt="logo"
-          /> -->
+              class="w-8 h-8 mr-2"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+              alt="logo"
+            /> -->
           Bookzyy
         </a>
         <div
           class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
         >
-          <div v-if="errorMsg">
-            <p class="text-red-500">{{ errorMsg }}</p>
+          <!-- <div v-if="errorMsg">
+              <p class="text-red-500">{{ errorMsg }}</p>
+            </div> -->
+          <div
+            v-if="errorMsg"
+            class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            role="alert"
+          >
+            <svg
+              class="flex-shrink-0 inline w-4 h-4 me-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <span class="sr-only">Info</span>
+            <div><span class="font-medium">Danger alert!</span> {{ errorMsg }}</div>
           </div>
+
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1
               class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
@@ -103,7 +123,7 @@ import { supabase } from '../lib/supabaseClient.js'
 import { useRouter } from 'vue-router'
 
 export default {
-  name: 'registerView',
+  name: 'loginView',
   setup() {
     const router = useRouter()
     const email = ref(null)
@@ -117,9 +137,12 @@ export default {
           password: password.value
         })
         if (error) throw error
-        router.push({ name: 'Home' })
+        router.push({ name: '/home' })
       } catch (error) {
         errorMsg.value = `Error: ${error.message}`
+        setTimeout(() => {
+          errorMsg.value = null
+        }, 5000)
       }
     }
 

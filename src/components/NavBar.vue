@@ -6,9 +6,23 @@
           <ul class="flex flex-grow space-x-4">
             <li>
               <a href="/" class="flex items-center space-x-3 text-gray-700 md:mr-5">
-                <span class="text-gray-200 hover:text-gray-300 text-2xl font-semibold py-1"
-                  >Bookzyy</span
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="white"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-8 p-0 m-0"
                 >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                  />
+                </svg>
+                <span class="text-gray-200 hover:text-gray-300 text-2xl font-semibold py-1"
+                  >Bookzyy
+                </span>
               </a>
             </li>
           </ul>
@@ -80,27 +94,34 @@
               >
                 <ul class="flex flex-col bg-gray-100 w-full rounded shadow-md overflow-hidden">
                   <li class="flex">
-                    <h3 class="flex flex-1 text-gray-600 font-semibold px-5 py-4">Navigation</h3>
+                    <h3 class="flex flex-1 text-gray-600 font-semibold px-5 py-4">Menu</h3>
                   </li>
                   <li class="flex border-t">
-                    <a
-                      href="/"
+                    <router-link
+                      to="/home"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
-                      >Home</a
+                      >Home</router-link
                     >
                   </li>
                   <li class="flex">
-                    <a
-                      href="/portfolio"
+                    <router-link
+                      to="/calender"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
-                      >Calender</a
+                      >Calender</router-link
                     >
                   </li>
                   <li class="flex">
-                    <a
-                      href="/articles"
+                    <router-link
+                      to="/teams"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
-                      >Articles</a
+                      >Teams</router-link
+                    >
+                  </li>
+                  <li class="flex">
+                    <router-link
+                      to="/myholiday"
+                      class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
+                      >My holiday</router-link
                     >
                   </li>
                 </ul>
