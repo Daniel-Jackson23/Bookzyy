@@ -137,7 +137,7 @@ export default {
           password: password.value
         })
         if (error) throw error
-        router.push({ name: '/home' })
+        router.push({ name: 'home' })
       } catch (error) {
         errorMsg.value = `Error: ${error.message}`
         setTimeout(() => {
