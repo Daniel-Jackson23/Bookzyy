@@ -15,7 +15,6 @@ if (!user) {
 }
 
 supabase.auth.onAuthStateChange((_, session) => {
-  console.log('hello')
   state.methods.setUser(session)
   appReady.value = true
 })

@@ -29,13 +29,14 @@
           <ul class="flex items-center space-x-5">
             <li class="hidden sm:flex">
               <router-link
-                to="/home"
+                to="/"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >Home</router-link
               >
             </li>
             <li class="hidden sm:flex">
               <router-link
+                v-if="user"
                 to="/calender"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >Calender</router-link
@@ -43,6 +44,7 @@
             </li>
             <li class="hidden sm:flex">
               <router-link
+                v-if="user"
                 to="/teams"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >Teams</router-link
@@ -50,13 +52,23 @@
             </li>
             <li class="hidden sm:flex">
               <router-link
+                v-if="user"
                 to="/myholiday"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >My Holiday</router-link
               >
             </li>
+            <li class="hidden sm:flex">
+              <router-link
+                v-if="!user"
+                to="/login"
+                class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
+                >Login</router-link
+              >
+            </li>
             <li class="hidden sm:flex" @click="logout">
               <router-link
+                v-if="user"
                 to=""
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >logout</router-link
@@ -105,13 +117,14 @@
                   </li>
                   <li class="flex border-t">
                     <router-link
-                      to="/home"
+                      to="/"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
                       >Home</router-link
                     >
                   </li>
                   <li class="flex">
                     <router-link
+                      v-if="user"
                       to="/calender"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
                       >Calender</router-link
@@ -119,6 +132,7 @@
                   </li>
                   <li class="flex">
                     <router-link
+                      v-if="user"
                       to="/teams"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
                       >Teams</router-link
@@ -126,13 +140,23 @@
                   </li>
                   <li class="flex">
                     <router-link
+                      v-if="user"
                       to="/myholiday"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
                       >My holiday</router-link
                     >
                   </li>
+                  <li class="flex">
+                    <router-link
+                      v-if="!user"
+                      to="/login"
+                      class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
+                      >Login</router-link
+                    >
+                  </li>
                   <li class="flex" @click="logout">
                     <router-link
+                      v-if="user"
                       to="/"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
                       >logout</router-link
@@ -152,13 +176,14 @@
 import { supabase } from '@/lib/supabaseClient'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import stores from '@/stores'
 
 export default {
   setup() {
     const showMenu = ref(false)
-
     const router = useRouter()
-
+    const user = computed(() => stores.state.user)
     const toggleMenu = () => {
       showMenu.value = !showMenu.value
     }
@@ -171,7 +196,8 @@ export default {
     return {
       showMenu,
       toggleMenu,
-      logout
+      logout,
+      user
     }
   }
 }
