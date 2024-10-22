@@ -6,7 +6,13 @@
           <ul class="flex flex-grow space-x-4">
             <li>
               <a href="/" class="flex items-center space-x-3 text-gray-700 md:mr-5">
-                <svg
+                <img
+                  src="../assets/images/Graphicloads-Colorful-Long-Shadow-Book.256.png"
+                  alt="Logo"
+                  height="30px"
+                  width="40px"
+                />
+                <!-- <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="white"
                   viewBox="0 0 24 24"
@@ -19,7 +25,7 @@
                     stroke-linejoin="round"
                     d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
                   />
-                </svg>
+                </svg> -->
                 <span class="text-gray-200 hover:text-gray-300 text-2xl font-semibold py-1"
                   >Bookzyy
                 </span>
@@ -71,7 +77,7 @@
                 v-if="user"
                 to=""
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
-                >logout</router-link
+                >Logout</router-link
               >
             </li>
             <li class="hidden sm:flex">
@@ -184,7 +190,7 @@
                       v-if="user"
                       to="/"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
-                      >logout</router-link
+                      >Logout</router-link
                     >
                   </li>
 
