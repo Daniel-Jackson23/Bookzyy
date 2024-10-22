@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export const content = ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}']
 export const theme = {
+  fontFamily: {
+    display: ['Poppins'],
+    body: ['"Open Sans"']
+  },
   screen: {
     sm: '640px',
     // => @media (min-width: 640px) { ... }
@@ -16,6 +20,7 @@ export const theme = {
 
     '2xl': '1536px'
   },
+
   extend: {}
 }
 export const plugins = []
