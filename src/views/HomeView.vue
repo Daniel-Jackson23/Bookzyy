@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import CardRowComponent from '@/components/CardRowComponent.vue'
+</script>
 
 <template>
   <div class="container mx-auto px-5 py-5">
@@ -17,4 +19,5 @@
       </p>
     </div>
   </div>
+  <CardRowComponent />
 </template>
