@@ -3,6 +3,7 @@ import state from './stores/index'
 import NavBar from './components/NavBar.vue'
 import { ref } from 'vue'
 import { supabase } from './lib/supabaseClient'
+import PrimeView from 'primevue/config'
 
 const appReady = ref(null)
 
