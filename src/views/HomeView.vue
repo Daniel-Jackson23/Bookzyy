@@ -1,5 +1,10 @@
-<script setup>
-import CardRowComponent from '@/components/CardRowComponent.vue'
+<script>
+export default {
+  components: {},
+  data() {
+    return {}
+  }
+}
 </script>
 
 <template>
@@ -14,10 +19,9 @@ import CardRowComponent from '@/components/CardRowComponent.vue'
         Staff Holiday System.
       </h1>
       <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
-        Bookzyy is a holiday management system tailored for small to medium sized busniesses,
+        Bookzyy is a holiday management system tailored for small to medium sized businesses,
         helping you manage holidays, personal leave and maternity leave...
       </p>
     </div>
   </div>
-  <CardRowComponent />
 </template>

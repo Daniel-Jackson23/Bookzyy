@@ -1,18 +1,20 @@
 [
   {
     "id": 0,
-    "name": "Book Time Off"
+    "name": "Starter Team",
+    "price": "3.50",
+    "des": "Per Person Monthly"
   },
   {
     "id": 1,
-    "name": "Book Time Off"
+    "name": "Core Team",
+    "price": "5.50",
+    "des": "Per Person Monthly"
   },
   {
     "id": 2,
-    "name": "Book Time Off"
-  },
-  {
-    "id": 3,
-    "name": "Book Time Off"
+    "name": "Pro Team",
+    "price": "7.50",
+    "des": "Per Person Monthly"
   }
 ]
