@@ -12,20 +12,7 @@
                   height="30px"
                   width="40px"
                 />
-                <!-- <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="white"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-8 p-0 m-0"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-                  />
-                </svg> -->
+
                 <span class="text-gray-200 hover:text-gray-300 text-2xl font-semibold py-1"
                   >Bookzyy
                 </span>
@@ -75,13 +62,13 @@
             <li class="hidden sm:flex" @click="logout">
               <router-link
                 v-if="user"
-                to=""
+                to="/login"
                 class="text-gray-200 hover:text-gray-400 text font-semibold py-1 px-3"
                 >Logout</router-link
               >
             </li>
             <li class="hidden sm:flex">
-              <router-link>
+              <router-link to="/price">
                 <button
                   type="button"
                   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -188,14 +175,14 @@
                   <li class="flex" @click="logout">
                     <router-link
                       v-if="user"
-                      to="/"
+                      to="/login"
                       class="flex flex-1 text-lg text-gray-700 hover:bg-gray-200 font-semibold px-8 py-4"
                       >Logout</router-link
                     >
                   </li>
 
                   <li class="flex justify-center p-7">
-                    <router-link>
+                    <router-link to="/price">
                       <button
                         type="button"
                         class="p-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
